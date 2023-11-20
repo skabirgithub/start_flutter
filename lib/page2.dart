@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:start_flutter/main.dart';
 
 class SecondPage extends StatefulWidget {
-  const SecondPage({super.key});
+  final String recordName;
+  const SecondPage({super.key, required this.recordName});
 
   @override
   State<SecondPage> createState() => _SecondPageState();
 }
 
 class _SecondPageState extends State<SecondPage> {
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -66,13 +70,17 @@ class _SecondPageState extends State<SecondPage> {
                       fit: BoxFit.fill,
                       image: AssetImage('asset/images/cover.jpg'))),
             ),
-            const Text('This is the Second Page'),
+            Text('Passed Value ${widget.recordName}'),
             TextButton(
               onPressed: () {
                 Navigator.pop(context);
+                // Navigator.push(
+                //   context,
+                //   MaterialPageRoute(builder: (context) => const MyHomePage(title: 'Hello')),
+                // );
               },
               child: const Text('Go Back'),
-            )
+            ),
           ],
         ),
       ),
